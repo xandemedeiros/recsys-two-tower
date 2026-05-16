@@ -105,9 +105,6 @@ Source: https://grouplens.org/datasets/movielens/1m/
 ```
 recsys-two-tower/
 |
-|-- notebook/
-|   |-- recsys_two_tower.ipynb      # full notebook, all phases and FastAPI application
-|
 |-- artifacts/
 |   |-- item_embeddings.npy         # (3706, 64) item vectors
 |   |-- user_embeddings.npy         # (6040, 64) user vectors
@@ -116,6 +113,9 @@ recsys-two-tower/
 |   |-- idx2movie.pkl               # embedding index -> movie_id
 |   |-- movies_lookup.pkl           # movie_id -> {title, genres}
 |   |-- model_weights.weights.h5    # trained model weights
+|
+|-- notebook/
+|   |-- recsys_two_tower.ipynb      # full notebook, all phases and FastAPI application
 |
 |-- README.md
 ```
