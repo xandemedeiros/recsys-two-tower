@@ -353,18 +353,22 @@ Interactive Swagger UI with all endpoints.
 These are issues encountered during development and how they were resolved.
 
 **MongoDB Atlas SSL handshake failure on Colab**
+
 The Python SSL stack on Colab 2024+ has a TLS version mismatch with Atlas.
 Fixed by passing `tls=True, tlsAllowInvalidCertificates=True` to `MongoClient`.
 
 **np.int64 not JSON serializable**
+
 NumPy integer types are not handled by Python's built-in `json` module.
 Fixed with a custom `JSONEncoder` subclass that maps `np.integer` to `int` and `np.floating` to `float` before serialization.
 
 **Negative sampling quality**
+
 Initial uniform random negative sampling produced a model that recommended only globally popular items regardless of user identity.
 The fix was popularity-weighted negative sampling by drawing negatives proportionally to item frequency makes the task harder and forces the model to learn user-specific signal rather than global popularity.
 
 **Embedding magnitude saturation**
+
 Without L2 normalization, all recommendation scores clustered near 0.999.
 The dot product was measuring embedding magnitude rather than directional alignment.
 Adding a normalization layer at the output of each tower constrains vectors to the unit sphere and converts dot products to cosine similarity.
